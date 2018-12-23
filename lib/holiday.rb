@@ -83,13 +83,10 @@ def all_holidays_with_bbq(holiday_hash)
   
   newArray = []
   holiday_hash.collect do |season, holiday|
-  holiday.each do |supplies|
-  if supplies.include? ("BBQ")
-    
-    newArray << holiday
-  
-    if holiday.values.include? ("BBQ")
-      newArray << holiday
+    holiday.each do |supplies|
+      if supplies.include? ("BBQ")
+        newArray << holiday.to_sym
+      end
     end
   end
   newArray
